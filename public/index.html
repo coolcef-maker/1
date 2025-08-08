@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tri LLM Chat</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body class="bg-slate-950 text-slate-100 font-[Inter] min-h-screen">
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute -top-40 -left-40 w-[700px] h-[700px] rounded-full bg-gradient-to-tr from-fuchsia-500/20 via-cyan-400/10 to-indigo-500/10 blur-3xl"></div>
+    <div class="absolute -bottom-40 -right-40 w-[700px] h-[700px] rounded-full bg-gradient-to-tr from-emerald-400/20 via-sky-400/10 to-purple-500/10 blur-3xl"></div>
+  </div>
+
+  <header class="relative z-10 p-6 flex items-center gap-3">
+    <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-fuchsia-500 to-cyan-400 shadow-lg shadow-cyan-500/20"></div>
+    <h1 class="text-xl md:text-2xl font-extrabold tracking-tight">Tri LLM Chat</h1>
+    <div class="ml-auto flex items-center gap-2">
+      <a href="/admin" class="text-sm text-slate-300 hover:text-white transition">Admin</a>
+    </div>
+  </header>
+
+  <main class="relative z-10 container mx-auto px-4 pb-36">
+    <div id="panes" class="grid grid-rows-3 gap-4 h-[calc(100vh-10rem)]">
+      <div class="pane glass rounded-2xl p-4 flex flex-col">
+        <div class="flex items-center justify-between mb-2">
+          <h2 id="labelA" class="text-sm font-semibold text-slate-200">Slot A</h2>
+          <span id="statusA" class="status-dot"></span>
+        </div>
+        <div id="outA" class="flex-1 overflow-auto space-y-3 text-sm leading-relaxed"></div>
+      </div>
+      <div class="pane glass rounded-2xl p-4 flex flex-col">
+        <div class="flex items-center justify-between mb-2">
+          <h2 id="labelB" class="text-sm font-semibold text-slate-200">Slot B</h2>
+          <span id="statusB" class="status-dot"></span>
+        </div>
+        <div id="outB" class="flex-1 overflow-auto space-y-3 text-sm leading-relaxed"></div>
+      </div>
+      <div class="pane glass rounded-2xl p-4 flex flex-col">
+        <div class="flex items-center justify-between mb-2">
+          <h2 id="labelC" class="text-sm font-semibold text-slate-200">Slot C</h2>
+          <span id="statusC" class="status-dot"></span>
+        </div>
+        <div id="outC" class="flex-1 overflow-auto space-y-3 text-sm leading-relaxed"></div>
+      </div>
+    </div>
+  </main>
+
+  <form id="chatForm" class="fixed bottom-0 left-0 right-0 z-20">
+    <div class="container mx-auto p-4">
+      <div class="glass rounded-2xl p-2 flex gap-2 items-center">
+        <input id="prompt" type="text" placeholder="Type your message..." class="flex-1 bg-transparent outline-none px-3 py-3 text-slate-100 placeholder:text-slate-400" />
+        <button id="sendBtn" type="submit" class="btn-primary">Send</button>
+      </div>
+      <p id="hint" class="text-xs text-slate-400 mt-2">Pro tip: Press Enter to send. Shift+Enter for a new line.</p>
+    </div>
+  </form>
+
+  <script src="/app.js"></script>
+</body>
+</html>

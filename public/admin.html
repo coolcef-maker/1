@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin - Tri LLM Chat</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body class="bg-slate-950 text-slate-100 font-[Inter] min-h-screen">
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute -top-40 -left-40 w-[700px] h-[700px] rounded-full bg-gradient-to-tr from-fuchsia-500/20 via-cyan-400/10 to-indigo-500/10 blur-3xl"></div>
+    <div class="absolute -bottom-40 -right-40 w-[700px] h-[700px] rounded-full bg-gradient-to-tr from-emerald-400/20 via-sky-400/10 to-purple-500/10 blur-3xl"></div>
+  </div>
+
+  <header class="relative z-10 p-6 flex items-center gap-3">
+    <a href="/" class="text-sm text-slate-300 hover:text-white transition">← Back</a>
+    <h1 class="text-xl md:text-2xl font-extrabold tracking-tight ml-2">Admin</h1>
+    <div class="ml-auto">
+      <button id="logoutBtn" class="text-sm text-slate-300 hover:text-white transition hidden">Logout</button>
+    </div>
+  </header>
+
+  <main class="relative z-10 container mx-auto px-4 pb-20">
+    <section id="loginSection" class="max-w-md mx-auto glass p-6 rounded-2xl">
+      <h2 class="text-lg font-semibold mb-4">Login</h2>
+      <form id="loginForm" class="space-y-3">
+        <div>
+          <label class="text-sm text-slate-300">Username</label>
+          <input id="username" class="w-full bg-transparent border border-white/10 rounded-lg px-3 py-2" value="admin" />
+        </div>
+        <div>
+          <label class="text-sm text-slate-300">Password</label>
+          <input id="password" type="password" class="w-full bg-transparent border border-white/10 rounded-lg px-3 py-2" value="pass" />
+        </div>
+        <button class="btn-primary w-full" type="submit">Login</button>
+      </form>
+    </section>
+
+    <section id="configSection" class="hidden space-y-6">
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="glass rounded-2xl p-4">
+          <h3 class="font-semibold mb-3">Slot A</h3>
+          <div id="slotA" class="slot-form"></div>
+        </div>
+        <div class="glass rounded-2xl p-4">
+          <h3 class="font-semibold mb-3">Slot B</h3>
+          <div id="slotB" class="slot-form"></div>
+        </div>
+        <div class="glass rounded-2xl p-4">
+          <h3 class="font-semibold mb-3">Slot C</h3>
+          <div id="slotC" class="slot-form"></div>
+        </div>
+      </div>
+      <div class="flex gap-3">
+        <button id="saveBtn" class="btn-primary">Save Configuration</button>
+        <span id="saveState" class="text-sm text-slate-400"></span>
+      </div>
+    </section>
+  </main>
+
+  <script src="/admin.js"></script>
+</body>
+</html>

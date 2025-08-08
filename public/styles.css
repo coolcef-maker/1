@@ -1,0 +1,76 @@
+/* Global */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+/***** Glass and visuals *****/
+.glass {
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 10px 30px rgba(2,6,23,0.5), inset 0 0 0 1px rgba(255,255,255,0.03);
+  backdrop-filter: blur(8px) saturate(120%);
+}
+
+.pane {
+  position: relative;
+  overflow: hidden;
+}
+
+.pane::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  pointer-events: none;
+  background: radial-gradient(800px 200px at 20% -10%, rgba(168,85,247,0.08), transparent 40%),
+              radial-gradient(800px 200px at 80% 110%, rgba(34,211,238,0.08), transparent 40%);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #a855f7, #22d3ee);
+  color: white;
+  font-weight: 700;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 20px rgba(34,211,238,0.25), 0 0 0 1px rgba(255,255,255,0.1) inset;
+  transition: transform .15s ease, filter .15s ease;
+}
+.btn-primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
+.btn-primary:active { transform: translateY(0); }
+
+/* Status dot */
+.status-dot {
+  display: inline-block;
+  width: 10px; height: 10px;
+  border-radius: 9999px;
+  background: #64748b;
+  box-shadow: 0 0 0 0 rgba(34,211,238, 0.7);
+  animation: pulse 2s infinite;
+}
+.status-loading { background: #f59e0b; }
+.status-ok { background: #10b981; }
+.status-error { background: #ef4444; }
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(168,85,247,0.5); }
+  70% { box-shadow: 0 0 0 10px rgba(168,85,247,0); }
+  100% { box-shadow: 0 0 0 0 rgba(168,85,247,0); }
+}
+
+/* Messages */
+.message { white-space: pre-wrap; }
+.message.user {
+  color: #cbd5e1;
+}
+.message.assistant {
+  color: #e2e8f0;
+}
+.message.error { color: #fecaca; }
+
+/* Scrollbar styling */
+#outA::-webkit-scrollbar, #outB::-webkit-scrollbar, #outC::-webkit-scrollbar {
+  width: 8px;
+}
+#outA::-webkit-scrollbar-thumb, #outB::-webkit-scrollbar-thumb, #outC::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.15);
+  border-radius: 9999px;
+}

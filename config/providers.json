@@ -1,0 +1,49 @@
+{
+  "slots": {
+    "slotA": {
+      "label": "OpenRouter",
+      "providerType": "openrouter",
+      "apiKey": "",
+      "baseUrl": "https://openrouter.ai/api/v1",
+      "model": "openrouter/auto",
+      "headers": { "HTTP-Referer": "", "X-Title": "Tri LLM Chat" },
+      "generic": {
+        "url": "",
+        "method": "POST",
+        "headers": {},
+        "bodyTemplate": "{\"model\":\"{{model}}\",\"messages\":{{messages_json}}}",
+        "responsePath": "choices.0.message.content"
+      }
+    },
+    "slotB": {
+      "label": "Abacus",
+      "providerType": "openai_compatible",
+      "apiKey": "",
+      "baseUrl": "https://YOUR-ABACUS-ENDPOINT/api/v1",
+      "model": "gpt-4o-mini",
+      "headers": {},
+      "generic": {
+        "url": "",
+        "method": "POST",
+        "headers": {},
+        "bodyTemplate": "{\"model\":\"{{model}}\",\"messages\":{{messages_json}}}",
+        "responsePath": "choices.0.message.content"
+      }
+    },
+    "slotC": {
+      "label": "Genspark",
+      "providerType": "openai_compatible",
+      "apiKey": "",
+      "baseUrl": "https://YOUR-GENSPARK-ENDPOINT/api/v1",
+      "model": "gpt-4o-mini",
+      "headers": {},
+      "generic": {
+        "url": "",
+        "method": "POST",
+        "headers": {},
+        "bodyTemplate": "{\"model\":\"{{model}}\",\"messages\":{{messages_json}}}",
+        "responsePath": "choices.0.message.content"
+      }
+    }
+  }
+}
